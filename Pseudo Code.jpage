@@ -1,0 +1,173 @@
+IN x            -         op code: 07   0799
+IN y			-		  op code: 07	0798
+Load x			-		  op code: 01   0199
+Add y			-	      op code: 03   0398
+Store z         -         op code: 02   0297
+OUT z			-	      op code: 08   0897
+STOP			-	      op code: 00   0000
+
+
+Data from user input, and stores it at mem[99]
+		
+Internal CPU components - Inheritance
+
+4168
+
+-9999 to 9999   Forced to use short
+
+Test with int, then make it short
+
+Program counter: Contains the address of the next instruction to 
+be fetched (needs to increment by 1)
+
+mypc.inc(); // increment (is a)
+
+Extend base to program counter, ir
+
+write class computer
+
+class BaseMemoryElement {
+	private short value;
+	
+
+public BaseMemoryElemOut() {
+	value = 0;
+	}
+
+public int read() {
+	return value;
+}
+
+public void write(short n) {
+	value = n;
+}
+}
+
+class programCounter extends BaseMemoryElement {
+
+	
+	public ProgramCounter() {
+		super();
+	}
+
+	public void inc() {
+	 super.write(super.read() +1));
+		
+	}
+}
+
+class computer {
+
+	private ram myRam;
+	private cpu myCpu; (inheritance mem element, prog counter)
+	private Input myIn;
+	private Output myOut;
+}
+
+cpu.fetch
+cpu.decode
+
+public Computer() {
+myRam = new Ram(100);	
+myCpu = new cpu();
+myIN = newInput(); *Simple
+myOut = newOutput();
+}
+
+public void load (String fileName) {
+	myRam.write(799,0);
+	myRam.write(798,1);
+	myRam.write(199,2);
+	myRam.write(398,3);
+	myRam.write(293,4);
+	myRam.write(897,5);
+	for (int i = 6; i < 100; i==)
+		myRam.write(0,i);
+	
+
+public String toString() {
+String s = new String();
+s += "Brian's Computer\n";
+s += myRam;
+s += myCpu;
+s += myIn;
+s += myOut;
+return s;
+}
+}
+
+
+
+cpu
+IO
+
+100 shorts loaded into memory 
+
+public static void main(String[] aaargs) {
+	
+Computer myPi;  ()
+
+myPi = new Computer(100)
+myPi.load("gta.exe")
+
+sysoutln(myPi) -toString for everything
+
+myPi.run();
+		
+}
+}
+
+
+Operation Codes:
+	
+	0 - Stop
+	1 - Load
+	2 - Store
+	3 - add
+	4 - sub
+	5 - mpy
+	6 - div
+	7 - input
+	8 - output
+	9 - BRANCH unconditional
+	10 - Branch if zero
+	11 - Branch if > zero
+	
+public class Ram{ 
+		private baseMemElem[] mem;
+		
+		public Ram(int size) {
+			mem = new BaseMemElem[size100]
+					for(int i= 0; i < size; i++)
+				     mem[i] = new BaseMemElem(); 
+		}
+		
+		public void write(short value, int location) {
+			
+		}
+		
+		public short read(int loc) {
+			// as Short
+			
+		}
+		
+		public String toString() {
+		    // Print mem map	
+		}
+		
+	}
+	}
+	
+	public short Store(int memAddress, int accData) {
+	myRam.write(myCpu.getMDR(), myCPU.getMAR());	
+	}
+	}
+	
+	data bus and serial bus
+	
+	inheritance from memory  pc can incremen ir can decode (op code, operand), acc holds value
+	
+	any item can read from the busses
+	
+	2 components off-side cpu (variables) private inside set/get  1. MAR (Memm address register(base mem element) + Memory data register) contains address/data for busses 2. 
+	
